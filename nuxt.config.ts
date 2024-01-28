@@ -12,6 +12,12 @@ export default defineNuxtConfig({
       title: 'CloneTube',
     },
   },
+  runtimeConfig: {
+    youtubeApiKey: process.env.NUXT_YOUTUBE_API_KEY,
+    public: {
+      youtubeApiUrl: process.env.NUXT_YOUTUBE_API_URL,
+    },
+  },
   primeVue: {
     usePrimeVue: true,
   },

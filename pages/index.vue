@@ -1,15 +1,20 @@
 <template>
   <div class="feed__container py-4 mx-5">
-    <div
-      class="feed__video-grid pb-3"
-    >
+    <div class="feed__video-grid pb-3">
       <VideoItem
-        v-for="i in 30"
-        :key="i"
+        v-for="video in videos"
+        :key="video.id.videoId"
+        :video="video"
       />
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const data = await $fetch('/api/videos')
+console.log(data)
+const videos = data.items
+</script>
 
 <style>
 .feed__container {
@@ -18,7 +23,7 @@
 
 .feed__video-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;

@@ -4,4 +4,5 @@ export default {
   signIn: 'Sign In',
   signUp: 'Sign Up',
   logOut: 'Log Out',
+  views: 'views',
 }

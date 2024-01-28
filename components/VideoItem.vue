@@ -1,22 +1,49 @@
 <template>
   <div class="container">
     <div class="thumbnail">
+      <img
+        :src="thumbnails.high.url"
+        :alt="title"
+        class="thumbnail__image"
+      >
       <div class="thumbnail__duration">
         <span>10:00</span>
       </div>
     </div>
     <div class="thumbnail__details">
-      <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+      <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" style="min-width: 10%;" />
       <div>
-        <div class="title">Title</div>
-        <div class="subtitle">Subtitle</div>
+        <div class="title">
+          {{ formattedTitle }}
+        </div>
+        <div class="subtitle">
+          {{ channelTitle }}
+        </div>
         <span class="stats">
-          100 K Views * 1 week ago
+          {{ formattedViews }} {{ $t('views') }} <span>&#8226;</span> {{ elapsedTimeFromUpload }}
         </span>
       </div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { type SearchResult } from '@/types/video';
+
+interface Props {
+  video: SearchResult
+}
+
+const props = defineProps<Props>()
+const { video } = toRefs(props)
+const { snippet } = video.value;
+
+const { title, channelTitle, publishedAt, thumbnails } = snippet
+
+const formattedTitle = title.length > 80 ? `${title.slice(0, 80)}...` : title
+const formattedViews = abbreviateNumber(Math.random() * 10000000)
+const elapsedTimeFromUpload = getElapsedTimeFromUpload(publishedAt)
+</script>
 
 <style scoped>
 .container {
@@ -27,16 +54,18 @@
 }
 
 .thumbnail {
+  position: relative;
+  aspect-ratio: 16/9;
+}
+
+.thumbnail__image {
   width: 100%;
   height: 100%;
-  background-color: #0c6fc5;
+  border-radius: 4px;
+  aspect-ratio: 16/9;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-  aspect-ratio: 16/9;
 }
 
 .thumbnail__duration {
@@ -59,7 +88,7 @@
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
