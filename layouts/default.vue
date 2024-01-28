@@ -10,7 +10,10 @@ const menuItems = [
 <template>
   <div class="layout">
     <Navbar @menu-button-click="sidebarVisible = true" />
-    <Sidebar v-model:visible="sidebarVisible" header="Sidebar">
+    <Sidebar
+      v-model:visible="sidebarVisible"
+      header="Sidebar"
+    >
       <Menu :model="menuItems" />
     </Sidebar>
 

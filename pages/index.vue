@@ -12,7 +12,6 @@
 
 <script setup lang="ts">
 const data = await $fetch('/api/videos')
-console.log(data)
 const videos = data.items
 </script>
 

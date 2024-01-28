@@ -1,15 +1,13 @@
 <template>
   <NuxtLink :to="`/videos/${video.id.videoId}`">
-    <div class="container">
+    <div class="flex flex-row gap-3">
       <div class="thumbnail">
-        <img :src=" thumbnails.high.url " :alt=" title " class="thumbnail__image">
+        <img :src=" thumbnails.medium.url " :alt=" title " class="thumbnail__image max-w-30">
         <div class="thumbnail__duration">
           <span>10:00</span>
         </div>
       </div>
       <div class="thumbnail__details">
-        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle"
-          style="min-width: 10%;" />
         <div>
           <div class="title">
             {{ formattedTitle }}
@@ -39,18 +37,12 @@ const { snippet } = video.value;
 
 const { title, channelTitle, publishedAt, thumbnails } = snippet
 
-const formattedTitle = title.length > 80 ? `${title.slice(0, 80)}...` : title
+const formattedTitle = title.length > 40 ? `${title.slice(0, 40)}...` : title
 const formattedViews = abbreviateNumber(Math.random() * 10000000)
 const elapsedTimeFromUpload = getElapsedTimeFromUpload(publishedAt)
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  /* max-width: 300px; */
-  /* Temporal */
-}
 
 .thumbnail {
   position: relative;
