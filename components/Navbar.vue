@@ -1,4 +1,3 @@
-
 <template>
   <div class="card">
     <Menubar>
@@ -11,9 +10,21 @@
       </template>
       <template #end>
         <div class="flex align-items-center gap-2">
-          <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+          <!-- TODO: Fix outlined button -->
+          <Button label="Log out" class="border p-2" @click="logOut" />
         </div>
       </template>
     </Menubar>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useAuthStore } from '~/stores/auth';
+
+const authStore = useAuthStore();
+
+const logOut = () => { 
+  authStore.logOut();
+  useNuxtApp().$router.push('/auth/signin') 
+}
+</script>

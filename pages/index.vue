@@ -1,18 +1,22 @@
 <template>
   <div class="feed__container py-4 mx-5">
     <div class="feed__video-grid pb-3">
-      <VideoItem
+      <!-- <VideoItem
         v-for="video in videos"
         :key="video.id.videoId"
         :video="video"
-      />
+      /> -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const data = await $fetch('/api/videos')
-const videos = data.items
+// const data = await $fetch('/api/videos')
+// const videos = data.items
+
+definePageMeta({
+  middleware: 'auth',
+})
 </script>
 
 <style>

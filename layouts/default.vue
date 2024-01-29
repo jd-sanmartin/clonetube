@@ -8,7 +8,7 @@ const menuItems = [
 </script>
 
 <template>
-  <div class="layout">
+  <div class="flex flex-col h-screen">
     <Navbar @menu-button-click="sidebarVisible = true" />
     <Sidebar
       v-model:visible="sidebarVisible"
@@ -17,7 +17,7 @@ const menuItems = [
       <Menu :model="menuItems" />
     </Sidebar>
 
-    <main class="layout__content">
+    <main class="flex overflow-auto">
       <slot />
     </main>
   </div>
@@ -26,16 +26,5 @@ const menuItems = [
 <style>
 body {
   margin: unset;
-}
-
-.layout {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-.layout__content {
-  display: flex;
-  overflow: auto;
 }
 </style>
