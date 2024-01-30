@@ -21,7 +21,7 @@
 
         <div class="flex row flex-wrap justify-between my-3">
           <!-- CHANNEL INFO -->
-          <div class="flex flex-row">
+          <div class="flex flex-row flex-wrap">
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
             <div class="flex flex-col mx-2">
               <span class="text-sm font-semibold">
@@ -50,7 +50,7 @@
     </div>
 
     <!-- DESCRIPTION COMMENTS AND SUGGESTIONS -->
-    <div class="flex w-full md:w-1/3">
+    <div class="flex w-full md:w-1/3" style="max-width: 100vw">
       <div class="flex w-full overflow-y-auto">
         <TabView class="w-full">
           <TabPanel header="Description">
@@ -64,12 +64,7 @@
             </div>
           </TabPanel>
           <TabPanel header="Suggestions">
-            <div class="flex flex-col gap-3">
-              <VideoSuggestion v-for="video in suggestions" :key="video.id" :video="video" />
-              <div ref="observerElement" class="flex justify-center">
-                <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
-              </div>
-            </div>
+            <VideoSuggestions />
           </TabPanel>
         </TabView>
       </div>
@@ -95,15 +90,4 @@ const formattedViews = abbreviateNumber(+statistics.viewCount)
 
 const elapsedTimeFromUpload = getElapsedTimeFromUpload(publishedAt)
 const formattedSubscribers = abbreviateNumber(Math.random() * 10000000)
-
-const suggestions = reactive((await $fetch('/api/videos')).items)
-
-const handleInfiniteScroll = () => {
-  suggestions.push(...suggestions);
-};
-
-const observerElement = useIntersectionObserver(handleInfiniteScroll);
-
 </script>
-
-

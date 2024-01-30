@@ -10,7 +10,7 @@ export default defineEventHandler(async () => {
       // TODO: make this attribute configurable
       part: 'snippet, statistics, contentDetails',
       chart: 'mostPopular',
-      maxResults: 10,
+      maxResults: 18,
     },
   });
 });
