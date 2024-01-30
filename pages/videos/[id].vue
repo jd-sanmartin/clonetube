@@ -90,42 +90,19 @@ const { snippet, statistics } = items[0]
 
 const { title, description, channelTitle, publishedAt } = snippet
 
-const formattedLikes = abbreviateNumber(statistics.likeCount)
-const formattedViews = abbreviateNumber(statistics.viewCount)
+const formattedLikes = abbreviateNumber(+statistics.likeCount)
+const formattedViews = abbreviateNumber(+statistics.viewCount)
 
 const elapsedTimeFromUpload = getElapsedTimeFromUpload(publishedAt)
 const formattedSubscribers = abbreviateNumber(Math.random() * 10000000)
 
 const suggestions = reactive((await $fetch('/api/videos')).items)
 
-const observerElement = ref(null);
-let observer;
+const handleInfiniteScroll = () => {
+  suggestions.push(...suggestions);
+};
 
-onMounted(() => {
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0,
-  };
-
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        suggestions.push(...suggestions);
-      }
-    });
-  }, options);
-
-  if (observerElement.value) {
-    observer.observe(observerElement.value);
-  }
-});
-
-onBeforeUnmount(() => {
-  if (observer) {
-    observer.disconnect();
-  }
-});
+const observerElement = useIntersectionObserver(handleInfiniteScroll);
 
 </script>
 

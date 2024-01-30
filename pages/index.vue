@@ -23,32 +23,9 @@ definePageMeta({
 const data = await $fetch('/api/videos')
 const videos = reactive(data.items)
 
-const observerElement = ref(null);
-let observer;
+const handleInfiniteScroll = () => {
+  videos.push(...videos);
+};
 
-onMounted(() => {
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0,
-  };
-
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        videos.push(...videos);
-      }
-    });
-  }, options);
-
-  if (observerElement.value) {
-    observer.observe(observerElement.value);
-  }
-});
-
-onBeforeUnmount(() => {
-  if (observer) {
-    observer.disconnect();
-  }
-});
+const observerElement = useIntersectionObserver(handleInfiniteScroll);
 </script>
