@@ -1,10 +1,10 @@
 <template>
-  <NuxtLink :to="`/videos/${video.id.videoId}`">
+  <NuxtLink :to="`/videos/${video.id}`">
     <div class="container">
       <div class="thumbnail">
         <img :src=" thumbnails.high.url " :alt=" title " class="thumbnail__image">
         <div class="thumbnail__duration">
-          <span>10:00</span>
+          <span>{{ formattedDuration }}</span>
         </div>
       </div>
       <div class="thumbnail__details">
@@ -27,6 +27,7 @@
 </template>
 
 <script setup lang="ts">
+// TODO: Update types
 import { type SearchResult } from '@/types/video';
 
 interface Props {
@@ -35,13 +36,16 @@ interface Props {
 
 const props = defineProps<Props>()
 const { video } = toRefs(props)
-const { snippet } = video.value;
+
+const { snippet, statistics, contentDetails } = video.value;
 
 const { title, channelTitle, publishedAt, thumbnails } = snippet
 
 const formattedTitle = title.length > 80 ? `${title.slice(0, 80)}...` : title
-const formattedViews = abbreviateNumber(Math.random() * 10000000)
+const formattedViews = abbreviateNumber(statistics.viewCount)
 const elapsedTimeFromUpload = getElapsedTimeFromUpload(publishedAt)
+
+const formattedDuration = formatYoutubeVideoDuration(contentDetails.duration)
 </script>
 
 <style scoped>

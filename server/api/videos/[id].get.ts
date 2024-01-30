@@ -9,10 +9,9 @@ export default defineEventHandler (async (event): Promise<VideoListResponse> => 
     params: {
       key: config.youtubeApiKey,
       id,
-      part: 'snippet',
-      q: 'surfing',
+      part: 'snippet, statistics',
       type: 'video',
-      maxResults: 2,
+      maxResults: 1,
     },
   });
 });

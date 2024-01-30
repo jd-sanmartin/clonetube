@@ -1,11 +1,12 @@
 <template>
-  <div class="flex flex-row justify-evenly items-center h-screen w-screen mesh-background">
-    <div class="flex bg-slate-800 p-5">
+  <div class="flex flex-col-reverse justify-center md:flex-row px-10 items-center gap-5 h-screen w-screen mesh-background">
+    <div class="w-full sm:w-1/2 bg-gray-900 rounded-md p-5">
       <slot />
     </div>
 
-    <div>
-      Message!
+    <div class="flex flex-col w-full sm:w-1/2">
+      <h1 class="text-5xl font-bold">Welcome to <span>Clone<span class="text-green-500">Tube</span></span></h1>
+      <p class="text-xl font-light">A YouTube clone built with Nuxt.js and Firebase</p>
     </div>
   </div>
 </template>

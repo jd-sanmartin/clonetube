@@ -1,16 +1,24 @@
 <template>
-  <div class=" flex flex-col p-8">
-    <p class="text-center font-bold font-sans text-xl mb-5">Sign In</p>
+  <div class="flex flex-col px-8 pb-8 pt-4 card">
+    <p class="text-center font-bold font-sans text-3xl mb-5">Sign In</p>
     <div class="mb-3 flex gap-5">
-      <label for="username">Username</label>
-      <InputText id="username" type="text" v-model="username" />
+      <InputText
+        v-model="username"
+        type="text"
+        placeholder="Email"
+        class="py-2 px-5 w-full"
+      />
     </div>
     <div class="mb-5 flex gap-5">
-      <label for="password">Password</label>
-      <Password id="password" v-model="password" />
+      <InputText
+        v-model="password"
+        type="password"
+        placeholder="Password"
+        class="py-2 px-5 w-full"
+      />
     </div>
     <Button class="border p-2 justify-self-center" label="Login" @click="login" />
-    Are you new? <NuxtLink class="underline" to="/auth/signup">Sign up</NuxtLink>
+    <span class="mt-3">Are you new? <NuxtLink class="underline" to="/auth/signup">Sign up</NuxtLink></span>
   </div>
 </template>
 

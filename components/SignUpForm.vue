@@ -2,16 +2,31 @@
   <div class=" flex flex-col p-8">
     <p class="text-center font-bold font-sans text-xl mb-5">Sign Up</p>
     <div class="mb-3 flex gap-5">
-      <label for="username">Username</label>
-      <InputText id="username" type="text" v-model="username" />
+      <InputText
+        v-model="username"
+        type="text"
+        placeholder="Email"
+        class="py-2 px-5 w-full"
+      />
+    </div>
+    <div class="mb-3 flex gap-5">
+      <InputText
+        v-model="password"
+        type="password"
+        placeholder="Password"
+        class="py-2 px-5 w-full"
+      />
     </div>
     <div class="mb-5 flex gap-5">
-      <label for="password">Password</label>
-      <Password id="password" v-model="password" />
+      <InputText
+        type="password"
+        placeholder="Confirm Password"
+        class="py-2 px-5 w-full"
+      />
     </div>
     <Button class="border p-2" label="Sign Up" @click="signUp" />
 
-    Already have an account? <NuxtLink class="underline" to="/auth/signin">Sign in</NuxtLink>
+    <span>Already have an account? <NuxtLink class="underline" to="/auth/signin">Sign in</NuxtLink></span>
   </div>
 </template>
 
