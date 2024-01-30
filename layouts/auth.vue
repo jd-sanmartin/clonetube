@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-col-reverse justify-center md:flex-row px-10 items-center gap-5 h-screen w-screen mesh-background">
-    <div class="w-full sm:w-1/2 bg-gray-900 rounded-md p-5">
-      <slot />
+    <div class="flex justify-center w-full sm:w-1/2">
+      <div class="bg-gray-900 rounded-md p-5">
+        <slot />
+      </div>
     </div>
 
     <div class="flex flex-col w-full sm:w-1/2">
