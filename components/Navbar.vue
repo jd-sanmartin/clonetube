@@ -2,11 +2,9 @@
   <div class="card">
     <Menubar>
       <template #start>
-        <div class="flex align-items-center gap-2">
-          <Button icon="pi pi-bars" class="p-mr-2 p-button-rounded p-button-text" @click="$emit('menuButtonClick')" />
-          <span style="display: flex; align-items: center;">CloneTube</span>
-          <InputText placeholder="Search" class="w-8rem sm:w-auto px-3" />
-        </div>
+        <NuxtLink to="/" class="flex items-center pl-3">
+          <span class="text-2xl font-bold">Clone<span class="text-green-500">Tube</span></span>
+        </NuxtLink>
       </template>
       <template #end>
         <div class="flex align-items-center gap-2">
