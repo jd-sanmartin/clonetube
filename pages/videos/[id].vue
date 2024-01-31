@@ -58,13 +58,13 @@
               {{ description }}
             </div>
           </TabPanel>
-          <TabPanel header="Comments">
-            <div class="text-sm font-light">
-              Comments
-            </div>
-          </TabPanel>
           <TabPanel header="Suggestions">
             <VideoSuggestions />
+          </TabPanel>
+          <TabPanel header="Comments">
+            <div class="text-sm font-light">
+              No comments have been added yet
+            </div>
           </TabPanel>
         </TabView>
       </div>
@@ -73,6 +73,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'auth',
+})
+
 import { type VideoListResponse } from '../../types/video';
 
 const route = useRoute()
