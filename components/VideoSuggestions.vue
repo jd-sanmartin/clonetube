@@ -11,6 +11,7 @@
 const suggestions = reactive((await $fetch('/api/videos')).items)
 
 const handleInfiniteScroll = () => {
+  // We would fetch more videos here, but it's mocked instead in order not to hit the API quota limit
   suggestions.push(...suggestions);
 };
 

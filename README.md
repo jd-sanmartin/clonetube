@@ -1,10 +1,16 @@
-# Nuxt 3 Minimal Starter
+# CloneTube
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A Youtube clone made with Nuxt 3
+
+You can see the demo [here](https://clonetube-jd-sanmartin.vercel.app/)
+
+## Note
+Infinite scroll is mocked in the application in order not to hit the Youtube API quota limit
 
 ## Setup
 
-Make sure to install the dependencies:
+1. Clone this project
+2. Install dependencies
 
 ```bash
 # npm
@@ -20,9 +26,21 @@ yarn install
 bun install
 ```
 
-## Development Server
+3. Add a .env file to the root directory with the following format:
 
-Start the development server on `http://localhost:3000`:
+```
+NUXT_YOUTUBE_API_KEY = [YOUR YOUTUBE KEY]
+NUXT_YOUTUBE_API_URL = https://youtube.googleapis.com/youtube/v3
+
+NUXT_FIREBASE_API_KEY = [YOUR FIREBASE KEY]
+NUXT_FIREBASE_AUTH_DOMAIN = [YOUR FIREBASE KEY]
+NUXT_FIREBASE_PROJECT_ID = [YOUR FIREBASE KEY]
+NUXT_FIREBASE_STORAGE_BUCKET = [YOUR FIREBASE KEY]
+NUXT_FIREBASE_MESSAGING_SENDER_ID = [YOUR FIREBASE KEY]
+NUXT_FIREBASE_APP_ID = [YOUR FIREBASE KEY]
+```
+
+4. Start the development server on `http://localhost:3000`:
 
 ```bash
 # npm
@@ -38,25 +56,12 @@ yarn dev
 bun run dev
 ```
 
-## Production
-
-Build the application for production:
+Alternatively, you can preview a production build:
+Build the project first (make sure you install nuxi first!):
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+nuxi build
 ```
-
-Locally preview production build:
 
 ```bash
 # npm
@@ -71,5 +76,3 @@ yarn preview
 # bun
 bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

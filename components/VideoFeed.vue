@@ -20,6 +20,7 @@ const data = await $fetch('/api/videos')
 const videos = reactive(data.items)
 
 const handleInfiniteScroll = () => {
+  // We would fetch more videos here, but it's mocked instead in order not to hit the API quota limit
   videos.push(...videos);
 };
 

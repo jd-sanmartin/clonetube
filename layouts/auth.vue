@@ -8,7 +8,7 @@
 
     <div class="flex flex-col w-full sm:w-1/2">
       <h1 class="text-5xl font-bold">Welcome to <span>Clone<span class="text-green-500">Tube</span></span></h1>
-      <p class="text-xl font-light">A YouTube clone built with Nuxt.js and Firebase</p>
+      <p class="text-xl font-light">A YouTube clone built with Nuxt 3</p>
     </div>
   </div>
 </template>

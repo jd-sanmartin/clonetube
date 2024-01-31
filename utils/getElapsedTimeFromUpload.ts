@@ -1,3 +1,12 @@
+/**
+ * Calculates the elapsed time from a given date to now and returns it as a human-readable string.
+ *
+ * This function takes a date (either as a string or a Date object), calculates the difference between that date and the current date, and returns a string that represents the elapsed time in a human-readable format
+ *
+ * @param {_date} string | Date - The date from which to calculate the elapsed time. Can be a string or a Date object.
+ * @returns {string} A string representing the elapsed time in a human-readable format.
+ * @example getElapsedTimeFromUpload('2021-01-01T00:00:00.000Z') // '3 year ago'
+ */
 export default function (_date: string | Date) {
   const now = new Date();
   const date = typeof _date === "string" ? new Date(_date) : _date;
