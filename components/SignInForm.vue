@@ -3,7 +3,7 @@
     <p class="text-center font-bold font-sans text-3xl mb-5">Sign In</p>
     <div class="mb-3 flex gap-5">
       <InputText
-        v-model="username"
+        v-model="email"
         type="text"
         placeholder="Email"
         class="py-2 px-5 w-full"
@@ -25,14 +25,14 @@
 <script setup lang="ts">
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
-const username = ref('');
+const email = ref('');
 const password = ref('');
 
 const login = () => {
   const nuxtApp = useNuxtApp();
   const authStore = useAuthStore();
 
-  signInWithEmailAndPassword(nuxtApp.$auth, username.value, password.value)
+  signInWithEmailAndPassword(nuxtApp.$auth, email.value, password.value)
     .then((userCredential: { user: any }) => {
       const user = userCredential.user;
       authStore.logIn(user)

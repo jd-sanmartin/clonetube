@@ -8,7 +8,6 @@
       </template>
       <template #end>
         <div class="flex align-items-center gap-2">
-          <!-- TODO: Fix outlined button -->
           <Button label="Log out" class="border p-2" @click="logOut" />
         </div>
       </template>

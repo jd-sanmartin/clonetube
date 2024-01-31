@@ -10,7 +10,6 @@ export default function (_date: string | Date) {
   const month = day * 30;
   const year = day * 365;
 
-  // TODO: Use i18n to localize this
   if (diffInSeconds < minute) {
     return `${diffInSeconds} seconds ago`;
   } else if (diffInSeconds < hour) {
