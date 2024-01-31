@@ -1,6 +1,6 @@
-export default function useIntersectionObserver(callback, options = { root: null, rootMargin: '0px', threshold: 1.0 }) {
+export default function useInfiniteScrollObserver(callback, options = { root: null, rootMargin: '0px', threshold: 1.0 }) {
   // TODO: Receive observer as a parameter
-  const observerElement = ref(null);
+  const infiniteScrollObserver = ref(null);
   let observer;
 
   onMounted(() => {
@@ -12,8 +12,8 @@ export default function useIntersectionObserver(callback, options = { root: null
       });
     }, options);
 
-    if (observerElement.value) {
-      observer.observe(observerElement.value);
+    if (infiniteScrollObserver.value) {
+      observer.observe(infiniteScrollObserver.value);
     }
   });
 
@@ -23,5 +23,5 @@ export default function useIntersectionObserver(callback, options = { root: null
     }
   });
 
-  return observerElement;
+  return infiniteScrollObserver;
 }

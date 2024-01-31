@@ -4,7 +4,7 @@
       <VideoFeedItem v-for="video in videos" :key="video.id.videoId" :video="video" />
     </div>
 
-    <div ref="observerElement" class="flex justify-center">
+    <div ref="infiniteScrollObserver" class="flex justify-center">
       <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
     </div>
   </div>
@@ -23,5 +23,5 @@ const handleInfiniteScroll = () => {
   videos.push(...videos);
 };
 
-const observerElement = useIntersectionObserver(handleInfiniteScroll);
+const infiniteScrollObserver = useInfiniteScrollObserver(handleInfiniteScroll);
 </script>
