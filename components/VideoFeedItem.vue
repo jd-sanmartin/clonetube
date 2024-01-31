@@ -18,7 +18,7 @@
             {{ channelTitle }}
           </div>
           <span class="stats">
-            {{ formattedViews }} {{ $t('views') }} <span>&#8226;</span> {{ elapsedTimeFromUpload }}
+            {{ formattedViews }} views <span>&#8226;</span> {{ elapsedTimeFromUpload }}
           </span>
         </div>
       </div>

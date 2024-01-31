@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@pinia-plugin-persistedstate/nuxt',
     'nuxt-primevue',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/i18n',
   ],
   app: {
     head: {
